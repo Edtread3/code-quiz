@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Code Quiz</title>
+    
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="quiz-header">
+           <h1>Coding Quiz Game</h1>
+           <p id="intro">Instructions
+           <p id="instruction">Answer the following questions within the time limit, select the wrong answer, and the time will be subtracted
+            from timer⏲️.... Good Luck 🍀</p>
+           </p>
+          <hr>
+           <div class="timerBox">Timer: <span style="color: rgb(190, 50, 50);">10sec</span></div>
+           <div class="scoreBox">Score: <span style="color: rgb(190, 50, 50);">/5 correct</span></div>
+           
+        </div>
+         
+        <div class="questions-container" id="quest">Questions:
+            <p id="questions"></p>
+           
+        </div>
+
+
+
+
+            
+            <div class="btn-bar" id="answer-buttons">
+                <button class="btn" id="option-a"></button>
+                <button class="btn" id="option-b"></button>
+                <button class="btn" id="option-c"></button>
+                <button class="btn" id="option-d"></button>
+            </div>
+
+        </div>
+        <div class="game-buttons">
+            <button id="start-btn">PLAY</button>
+            <button id="next-btn">NEXT</button>
+        </div>
+
+    </div>
+        
+    <script src="script.js"></script> 
+  </body>
+</html>
