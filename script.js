@@ -3,7 +3,7 @@ var nextBtn = document.querySelector("#next-btn");
 var timeEl = document.querySelector('.timerBox');
 var scoreEl = document.querySelector('.scoreBox');
 var questionEl = document.querySelector("#questions");
-var answerBtnsEl = document.querySelector("#answer-buttons");
+var answerBtnsEl = document.querySelectorAll(".option-btn");
 var optionsABtn = document.querySelector('#option-a');
 var optionsBBtn = document.querySelector('#option-b');
 var optionsCBtn = document.querySelector('#option-c');
@@ -65,8 +65,8 @@ function getQuestion() {
   optionsDBtn.textContent = randQuestions[questionIndex].options[3]
 }
   
-var secondsLeft = 10;
-
+var secondsLeft = 15;
+// Function that will set timer to count down from 15sec once play button is clicked.
 function setTime() {
 
     var timer = setInterval(function () {
@@ -77,24 +77,18 @@ function setTime() {
         clearInterval(timer);
       }
       
-    }, 1000);
+    }, 1500);
 
 };
 
-//var answerBtnsEl = options ['']
-//console.log("answerBtnsEl");
-
+// Fuction to check if correct answer was selected
 function checkAnswer(event){
-    optionsABtn.textContent = randQuestions[questionIndex].options[0].correctAnswer
-    optionsBBtn.textContent = randQuestions[questionIndex].options[1].correctAnswer
-    optionsCBtn.textContent = randQuestions[questionIndex].options[2].correctAnswer
-    optionsDBtn.textContent = randQuestions[questionIndex].options[3].correctAnswer
-
+    
     if(event.target.matches("button")){
         console.log("button clicked") }
-    if(event.target.matches("button") === event.target.questionIndex.options.correctAnswer) {
+    if(event.target.innerText === randQuestions[questionIndex].correctAnswer) {
           console.log('Correct Answer');
-          score ++;
+          ++score;
     }
     else{
           console.log('Wrong Answer');
@@ -105,8 +99,18 @@ function checkAnswer(event){
         getQuestion()
 }
 
+for (var i = 0; i < answerBtnsEl.length; i++) {
+    answerBtnsEl[i].addEventListener("click",checkAnswer);
+}
 
+//Function to update score everytime user selects correct answer
+function userScore(e) {
+    if(e.target.innerText === randQuestions[questionIndex].correctAnswer){
+    ++score
+    scoreEl.textContent = score;
+    }
+    ++score
+}
 
 playBtn.addEventListener("click", startQuiz);
 nextBtn.addEventListener("click", getQuestion);
-answerBtnsEl.addEventListener("click", checkAnswer);
