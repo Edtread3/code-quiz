@@ -5,3 +5,4 @@ Challenge assignment 4
 ## Once player clicks start game the first question appears and the timer begins.
 ## If player gets wrong answer then time will be subtracted from clock.
 ## Player can input name to record high score.
+## URL of deployed app:https://edtread3.github.io/code-quiz/
